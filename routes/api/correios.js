@@ -24,7 +24,7 @@ router.post('/calculate', (req, res) => {
     correios.consultaCEP({cep: req.body.cep})
         .then(result => {
             response.name = req.body.name;
-            response.endereco = result;
+            response.address = result;
             response.percapita = parseFloat(req.body.income) / parseFloat(req.body.people);
             res.status(200).send(response);
         })
